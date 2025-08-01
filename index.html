@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SiBoy - Makanan Ringan Terbaik</title>
+    <meta name="description" content="Website bisnis makanan ringan dengan produk berkualitas tinggi dan layanan terbaik">
+    <meta name="keywords" content="makanan ringan, snack, keripik, biskuit, kacang, popcorn">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <div class="logo">🍿 Keripik Si Boy</div>
+            <ul class="nav-links">
+                <li><a href="#home">Beranda</a></li>
+                <li><a href="#about">Tentang</a></li>
+                <li><a href="#products">Produk</a></li>
+                <li><a href="#features">Fitur</a></li>
+                <li><a href="#contact">Kontak</a></li>
+            </ul>
+            <div class="mobile-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Makanan Ringan Terlezat</h1>
+            <p>Nikmati berbagai pilihan makanan ringan berkualitas tinggi dengan rasa yang memuaskan</p>
+            <button class="cta-button" onclick="scrollToSection('products')">Lihat Produk</button>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">Tentang Kami</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Keripik Si Boy - Teman Setia Ngemil Anda</h3>
+                    <p>Kami adalah produsen makanan ringan terpercaya yang berkomitmen menghadirkan produk berkualitas tinggi dengan rasa yang memuaskan. Dengan pengalaman bertahun-tahun dalam industri makanan, kami memahami betul selera konsumen Indonesia.</p>
+                    <p>Setiap produk kami dibuat dengan bahan-bahan pilihan dan proses produksi yang higienis, menjamin keamanan dan kualitas yang terbaik untuk keluarga Anda.</p>
+                    <p>Kami fokus pada keripik tempe dan keripik pare original dengan kualitas terbaik yang akan memuaskan selera ngemil Anda.</p>
+                </div>
+                <div class="about-image">
+                    <img src="https://files.catbox.moe/8nn3oh.png" alt="Tentang Kami">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="products">
+        <div class="container">
+            <h2 class="section-title">Produk Unggulan</h2>
+            
+            <!-- Search and Filter -->
+            <div class="search-filter mb-4">
+                <input type="text" placeholder="Cari produk..." onkeyup="searchProducts(this.value)" class="search-input">
+                <select onchange="filterProducts(this.value)" class="filter-select">
+                    <option value="all">Semua Produk</option>
+                    <option value="tempe">Keripik Tempe</option>
+                    <option value="pare">Keripik Pare</option>
+                </select>
+            </div>
+            
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-media">
+                        <div class="product-video active" id="video-tempe-1">
+                            <video controls preload="metadata">
+                                <source src="https://files.catbox.moe/ggl182.mp4" type="video/mp4">
+                                Browser Anda tidak mendukung video.
+                            </video>
+                        </div>
+                        <div class="product-image" id="image-tempe-1">
+                            <img src="https://files.catbox.moe/97b359.jpg" alt="Keripik Tempe Original">
+                        </div>
+                        <div class="product-image" id="image-tempe-2">
+                            <img src="https://files.catbox.moe/wi3ov6.jpg" alt="Keripik Tempe Original">
+                        </div>
+                        <div class="product-image" id="image-tempe-3">
+                            <img src="https://files.catbox.moe/1tt7rp.jpg" alt="Keripik Tempe Original">
+                        </div>
+                        <div class="slider-controls">
+                            <button class="slider-btn prev" onclick="slideImage('tempe', -1)">❮</button>
+                            <button class="slider-btn next" onclick="slideImage('tempe', 1)">❯</button>
+                        </div>
+                        <div class="dot-indicators">
+                            <span class="dot active" onclick="goToSlide('tempe', 0)"></span>
+                            <span class="dot" onclick="goToSlide('tempe', 1)"></span>
+                            <span class="dot" onclick="goToSlide('tempe', 2)"></span>
+                            <span class="dot" onclick="goToSlide('tempe', 3)"></span>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Keripik Tempe Original</h3>
+                        <p class="product-description">Keripik tempe dengan rasa original yang gurih dan nikmat, tanpa tambahan bumbu. Tekstur renyah yang cocok untuk teman santai.</p>
+                        <div class="product-price">Rp 15.000</div>
+                        <div class="product-actions">
+                            <button class="order-button" onclick="checkoutNow('Keripik Tempe Original', 15000)">Checkout Sekarang</button>
+                            <button class="wishlist-btn" onclick="addToWishlist('Keripik Tempe Original')" title="Tambah ke Wishlist">
+                                <i class="fas fa-heart"></i>
+                            </button>
+                            <button class="share-btn" onclick="shareProduct('Keripik Tempe Original')" title="Bagikan">
+                                <i class="fas fa-share"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-media">
+                        <div class="product-image active" id="image-pare-1">
+                            <img src="https://files.catbox.moe/xe3kej.jpg" alt="Keripik Pare Original">
+                        </div>
+                        <div class="product-image" id="image-pare-2">
+                            <img src="https://files.catbox.moe/u1nvui.jpg" alt="Keripik Pare Original">
+                        </div>
+                        <div class="product-image" id="image-pare-3">
+                            <img src="https://files.catbox.moe/2e91pe.jpg" alt="Keripik Pare Original">
+                        </div>
+                        <div class="product-image" id="image-pare-4">
+                            <img src="https://files.catbox.moe/0qmykb.jpg" alt="Keripik Pare Original">
+                        </div>
+                        <div class="slider-controls">
+                            <button class="slider-btn prev" onclick="slideImage('pare', -1)">❮</button>
+                            <button class="slider-btn next" onclick="slideImage('pare', 1)">❯</button>
+                        </div>
+                        <div class="dot-indicators">
+                            <span class="dot active" onclick="goToSlide('pare', 0)"></span>
+                            <span class="dot" onclick="goToSlide('pare', 1)"></span>
+                            <span class="dot" onclick="goToSlide('pare', 2)"></span>
+                            <span class="dot" onclick="goToSlide('pare', 3)"></span>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Keripik Pare Original</h3>
+                        <p class="product-description">Keripik pare dengan rasa original yang unik dan nikmat. Sayuran pare yang diolah menjadi keripik renyah.</p>
+                        <div class="product-price">Rp 18.000</div>
+                        <div class="product-actions">
+                            <button class="order-button" onclick="checkoutNow('Keripik Pare Original', 18000)">Checkout Sekarang</button>
+                            <button class="wishlist-btn" onclick="addToWishlist('Keripik Pare Original')" title="Tambah ke Wishlist">
+                                <i class="fas fa-heart"></i>
+                            </button>
+                            <button class="share-btn" onclick="shareProduct('Keripik Pare Original')" title="Bagikan">
+                                <i class="fas fa-share"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <h2 class="section-title">Mengapa Memilih Kami?</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🌟</div>
+                    <h3 class="feature-title">Kualitas Terjamin</h3>
+                    <p class="feature-description">Produk kami dibuat dengan bahan berkualitas tinggi dan proses produksi yang higienis.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🚚</div>
+                    <h3 class="feature-title">Pengiriman Cepat</h3>
+                    <p class="feature-description">Layanan pengiriman yang cepat dan aman ke seluruh Indonesia.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💰</div>
+                    <h3 class="feature-title">Harga Terjangkau</h3>
+                    <p class="feature-description">Harga yang kompetitif dengan kualitas yang tidak diragukan.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎁</div>
+                    <h3 class="feature-title">Promo Menarik</h3>
+                    <p class="feature-description">Berbagai promo dan diskon menarik untuk pelanggan setia kami.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Hubungi Kami</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Informasi Kontak</h3>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Jl. Grahatama Indah 3, Tajurhalang, Kec. Tajurhalang, Kab.Bogor, Jawa Barat</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span>+62 821-9394-4296</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>KeripikSiBoy@gmail.com</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-clock"></i>
+                        <span>Setiap Hari</span>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <h3>Kirim Pesan</h3>
+                    <form onsubmit="submitForm(event)">
+                        <div class="form-group">
+                            <label for="name">Nama Lengkap</label>
+                            <input type="text" id="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Nomor Telepon</label>
+                            <input type="tel" id="phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Pesan</label>
+                            <textarea id="message" rows="4" required></textarea>
+                        </div>
+                        <button type="submit" class="submit-button">Kirim Pesan</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <h3>🍿 Keripik Si Boy</h3>
+            <p>Makanan ringan terlezat untuk keluarga Indonesia</p>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-whatsapp"></i></a>
+            </div>
+            <p>&copy; 2024 Keripik Si Boy. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Checkout Modal -->
+    <div id="checkoutModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeCheckoutModal()">&times;</span>
+            <h2>🛒 Checkout Produk</h2>
+            <div id="checkoutProduct"></div>
+            <div class="quantity-section">
+                <label for="quantity">Jumlah Porsi:</label>
+                <div class="quantity-controls">
+                    <button type="button" onclick="decreaseQuantity()">-</button>
+                    <input type="number" id="quantity" value="1" min="1" max="20">
+                    <button type="button" onclick="increaseQuantity()">+</button>
+                </div>
+            </div>
+            <div class="total-price" id="totalPrice">Total: Rp 0</div>
+            <button class="submit-button" onclick="proceedToWhatsApp()">Pesan via WhatsApp</button>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+</body>
+</html> 
