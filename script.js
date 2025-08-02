@@ -67,7 +67,7 @@ function proceedToWhatsApp() {
 
 Mohon konfirmasi ketersediaan dan detail pengiriman. Terima kasih!`;
 
-    const phoneNumber = '6282113148932'; // Nomor WhatsApp bisnis
+    const phoneNumber = '6281293944296'; // Nomor WhatsApp bisnis
     const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
     
     // Open WhatsApp
