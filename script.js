@@ -67,7 +67,7 @@ function proceedToWhatsApp() {
 
 Mohon konfirmasi ketersediaan dan detail pengiriman. Terima kasih!`;
 
-    const phoneNumber = '6281293944296'; // Nomor WhatsApp bisnis
+    const phoneNumber = '6282113148932'; // Nomor WhatsApp bisnis
     const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
     
     // Open WhatsApp
@@ -108,18 +108,35 @@ function submitForm(event) {
     const message = document.getElementById('message').value;
     
     // Validate form
-    if (!name || !email || !phone || !message) {
-        showNotification('Mohon lengkapi semua field!', 'error');
+    if (!name || !phone || !message) {
+        showNotification('Mohon lengkapi nama, nomor telepon, dan pesan!', 'error');
         return;
     }
     
-    // Simulate form submission
-    showNotification('Mengirim pesan...', 'info');
+    // Send to WhatsApp
+    const whatsappMessage = `📩 *PESAN DARI WEBSITE KERIPIK SI BOY*
+
+👤 *Nama:* ${name}
+📞 *No. Telepon:* ${phone}${email ? `\n📧 *Email:* ${email}` : ''}
+
+💬 *Pesan:*
+${message}
+
+---
+Dikirim melalui website Keripik Si Boy`;
+
+    const phoneNumber = '6282113148932'; // Nomor WhatsApp bisnis yang sama
+    const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(whatsappMessage)}`;
     
+    // Show loading notification
+    showNotification('Mengirim pesan ke WhatsApp...', 'info');
+    
+    // Open WhatsApp
     setTimeout(() => {
-        showNotification(`Terima kasih ${name}! Pesan Anda telah terkirim. Kami akan menghubungi Anda segera.`, 'success');
+        window.open(whatsappURL, '_blank');
+        showNotification(`Terima kasih ${name}! Anda akan diarahkan ke WhatsApp untuk mengirim pesan.`, 'success');
         event.target.reset();
-    }, 1500);
+    }, 1000);
 }
 
 // Show notification
